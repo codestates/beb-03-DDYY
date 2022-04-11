@@ -1,10 +1,25 @@
 import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import Home from './pages/Home';
+import Explore from "./pages/Explore";
+import Create from "./pages/Create";
+import Mypage from "./pages/Mypage";
+import Token from "./pages/Token";
+import Header from "./components/Header";
 
 import "./App.css";
 
+
 class App extends Component {
+  // 상태 정의
+  // 현재 페이지 (home, explore, create, mypage)
+  // 로그인 여부
+  // NFT 데이터 목록
+
+
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
@@ -53,19 +68,20 @@ class App extends Component {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     return (
-      <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
-        </p>
-        <p>
-          Try changing the value stored on <strong>line 42</strong> of App.js.
-        </p>
-        <div>The stored value is: {this.state.storageValue}</div>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <div className="content-wrapper">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/mypage" element={<Mypage />} />
+              <Route path="/token/:tokenId" element={<Token />} />
+            </Routes>
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
