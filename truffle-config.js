@@ -1,4 +1,4 @@
-const HDWalletProvider = require("@truffle/hdwallet-provider");
+const HDWalletProvider = require("./contracts/node_modules/truffle-hdwallet-provider");
 
 const fs = require("fs");
 const MNEMONIC = fs.readFileSync(".secret").toString().trim();
@@ -16,7 +16,7 @@ module.exports = {
 		rinkeby: {
 			provider: () =>
 				new HDWalletProvider(
-					MNEMONIC,
+					"road patrol accuse mule conduct evil audit deliver wink enjoy please fat",
 					`https://rinkeby.infura.io/v3/78a585a507d24a37a60b7eb1f9710e21`,
 					1
 				),
