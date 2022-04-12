@@ -9,9 +9,6 @@ const serverUrl = process.env.SERVER_URL;
 const appId = process.env.APP_ID;
 const masterKey = process.env.MASTER_KEY;
 
-
-
-
 //const opensea = require("opensea-js");
 //const OpenSeaPort = opensea.OpenSeaPort;
 // const Network = opensea.Network;
