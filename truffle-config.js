@@ -1,18 +1,15 @@
 const HDWalletProvider = require("./contracts/node_modules/truffle-hdwallet-provider");
 
-const fs = require("fs");
-const MNEMONIC = fs.readFileSync(".secret").toString().trim();
-
 module.exports = {
 	networks: {
 		/* 
-		development: {
-			host: "localhost",
-			port: 7545,
-			gas: 5000000,
-			network_id: "*", // Match any network id
-		},
-		 */
+        development: {
+            host: "localhost",
+            port: 7545,
+            gas: 5000000,
+            network_id: "*", // Match any network id
+        },
+         */
 		rinkeby: {
 			provider: () =>
 				new HDWalletProvider(
