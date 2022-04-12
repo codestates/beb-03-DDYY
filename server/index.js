@@ -3,6 +3,7 @@ const app = express();
 const port = 8080;
 const nftRouter = require('./routes/nft')
 const etherRouter = require('./routes/ether')
+const accountRouter = require('./routes/account')
 
 const cors = require('cors');
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/nft',nftRouter);
 app.use('/ether',etherRouter);
+app.use('/account',accountRouter);
 
 app.get('/', (req, res) => {
   
