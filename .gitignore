@@ -2,4 +2,8 @@ server/node_modules
 server/package-lock.json
 client/node_modules
 client/package-lock.json
-contracts/.secret
+.env
+upload
+/build
+/node_modules
+package-lock.json
