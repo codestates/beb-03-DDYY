@@ -32,10 +32,6 @@ exports.create = async (req, res, next) => {
 
     metaData = 'https://gateway.pinata.cloud/ipfs/'+ metaData;
 
-    const result = await contract.methods.mintNFT('0x47Ebe01EE3D9fFaE4fFF03fb1A9c1f6e29a277ab',metaData);
-
-    const result2 = await contract.methods.balanceOf('0x47Ebe01EE3D9fFaE4fFF03fb1A9c1f6e29a277ab').call();
-    
-    console.log(result);
-    console.log(result2);
+    console.log('⭐️⭐️⭐️----------------', metaData);
+    return metaData;
 }
