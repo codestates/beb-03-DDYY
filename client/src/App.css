@@ -41,7 +41,7 @@ body {
   width: inherit;
   flex-grow: 1;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* Button */
@@ -104,8 +104,10 @@ button {
 }
 
 .cart-wrapper {
+  margin-top: 200;
   width: inherit;
   text-align: right;
+  margin-top: 200px;
 }
 
 .home-content span {
@@ -118,7 +120,7 @@ button {
 
 .card {
   width: 360px;
-  height: 460px;
+  height: auto;
   background-color: rgba(42, 63, 48, 1);
 }
 
@@ -128,9 +130,15 @@ button {
   height: 360px;
 }
 
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
 .card-text-wrapper {
   padding: 10px 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -142,16 +150,26 @@ button {
 
 .card-textbox-content {
   font-size: 13px;
-}
-
-.card-price-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 340px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
 }
 
 .card-price {
   margin-bottom: 10px;
+}
+
+.card-transfer-input {
+  border: none;
+  border-radius: 5px;
+  width: 240px;
+  height: 25px;
+  margin-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* CardList */
@@ -197,7 +215,7 @@ button {
 .explore-searchbox {
   width: 420px;
   margin-top: 160px;
-  margin-bottom: 160px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,6 +241,17 @@ button {
 .explore-searchbox span {
   margin-left: 14px;
   font-size: 30px;
+}
+
+.explore-searchbox .explore-search-button {
+  background: transparent;
+  font-size: 30px;
+}
+
+.moreThan3-alert-message {
+  font-size: 26px;
+  color: rgb(173, 90, 52);
+  margin-bottom: 150px;
 }
 
 /* Mypage */
@@ -292,11 +321,24 @@ button {
 }
 
 .mintform-wrapper button {
-  margin-top: 20px;
+  margin-top: 40px;
   padding: 10px 20px;
   font-size: 30px;
   background-color: rgba(0, 255, 179, 1);
   color: rgba(24, 55, 39, 1);
+}
+
+.img-label-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.img-select-label {
+  background-color: rgba(120, 128, 117, 1);
+  padding: 12px 71px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Token */
@@ -311,4 +353,16 @@ button {
   justify-content: center;
   align-items: center;
   font-size: 60px;
+}
+
+/* LoadingIndicator */
+
+.loading-indicator-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-indicator-wrapper .loading-indicator {
+  width: 100px;
 }

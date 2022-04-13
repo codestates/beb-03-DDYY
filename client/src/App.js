@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -75,8 +74,8 @@ class App extends Component {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/explore" element={<Explore />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/mypage" element={<Mypage />} />
+              <Route path="/create" element={<Create account={this.state.accounts} />} />
+              <Route path="/mypage" element={<Mypage account={this.state.accounts} />} />
               <Route path="/token/:tokenId" element={<Token />} />
             </Routes>
           </div>
