@@ -1,16 +1,8 @@
-import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import React, { useRef } from "react";
 
 const Card = ({ name, desc, url, isMypage }) => {
 
   const inputRef = useRef();
-
-  const handleTransfer = () => {
-    const reciepient = inputRef.current.value;
-    // transfer 통신 로직
-    // console.log('⭐️⭐️⭐️----------------', reciepient);
-    inputRef.current.value = '';
-  }
 
   return (
     <div className="card">
@@ -32,7 +24,7 @@ const Card = ({ name, desc, url, isMypage }) => {
           isMypage === true ?
           <div className="card-transfer">
             <input ref={inputRef} className="card-transfer-input" type="text" />
-            <button onClick={handleTransfer}>Transfer</button>
+            <button>Transfer</button>
           </div> : null
         }
       </div>
