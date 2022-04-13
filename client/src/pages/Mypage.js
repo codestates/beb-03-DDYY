@@ -18,6 +18,9 @@ const Mypage = ({account}) => {
       const result = [];
       let count = 0;
       response.data.result.map((item) => {
+        if (item.metadata === null) {
+          return;
+        }
         const parsedItem = JSON.parse(item.metadata);
         const info = {
           id: count,
