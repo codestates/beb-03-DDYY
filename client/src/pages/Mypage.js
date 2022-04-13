@@ -21,9 +21,9 @@ const Mypage = ({account}) => {
         const parsedItem = JSON.parse(item.metadata);
         const info = {
           id: count,
-          name: parsedItem.name,
-          desc: parsedItem.description,
-          url: parsedItem.image
+          name: parsedItem.name ? parsedItem.name : 'undefined',
+          desc: parsedItem.description ? parsedItem.description : 'undefined',
+          url: parsedItem.image ? parsedItem.image : null,
         }
         result.push(info);
         count++;
