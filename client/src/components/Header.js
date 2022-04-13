@@ -13,7 +13,7 @@ const Header = () => {
         <div><Link to='/explore'>explore</Link></div>
         <div><Link to='/create'>create</Link></div>
         <div><Link to='/mypage'>mypage</Link></div>
-        <div><FontAwesomeIcon icon={faWallet} /></div>
+        {/* <div><FontAwesomeIcon icon={faWallet} /></div> */}
       </div>
     </div>
   )

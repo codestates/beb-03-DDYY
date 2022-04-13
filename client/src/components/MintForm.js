@@ -1,29 +1,20 @@
-import React, {useState, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import axios from 'axios';
-import Contract from 'web3-eth-contract';
 import Web3 from "web3";
 import ABI from '../abi/abi.js';
 
 
-const MintForm = ({ account }) => {
-
-  const deploy_address =  '0x1Dd73A2500886dd8dedC0e8F1E50D9A692784D99';
-
-  const web3 = new Web3('https://rinkeby.infura.io/v3/78a585a507d24a37a60b7eb1f9710e21');
-  
+const MintForm = () => {
 
   const nameRef = useRef();
   const descRef = useRef();
   let imgFile;
 
-  // 접속한 사람의 주소 가져오기
-  const recipient = account[0];
+  const [message, setMessage] = useState('');
+  const [txAddress, setTxAddress] = useState('');
 
-  //Contract연결
-  // Contract.setProvider('https://rinkeby.infura.io/v3/78a585a507d24a37a60b7eb1f9710e21');
-  // const deploy_address =  '0x1Dd73A2500886dd8dedC0e8F1E50D9A692784D99';
-  // const contract       =  new Contract(ABI, deploy_address);
-  
+  const deploy_address =  '0x1Dd73A2500886dd8dedC0e8F1E50D9A692784D99';
+  const web3 = new Web3('https://rinkeby.infura.io/v3/78a585a507d24a37a60b7eb1f9710e21');
 
   const loadFile = (input) => {
     imgFile = input.target.files[0];
@@ -32,6 +23,14 @@ const MintForm = ({ account }) => {
   const handleSubmit = async (event) => {
 
     event.preventDefault();
+
+    if (nameRef === '' || descRef === '' || imgFile === undefined) {
+      setMessage('formError');
+      return;
+    }
+
+    setMessage('loading');
+
     const formData = new FormData()
     formData.append('name', nameRef.current.value);
     formData.append('description', descRef.current.value);
@@ -48,6 +47,9 @@ const MintForm = ({ account }) => {
     .then((response) => response.data);
 
     mintNFT(data);
+    nameRef.current.value = '';
+    descRef.current.value = '';
+    imgFile = null;
   }
 
   const mintNFT = async (metaData) => {
@@ -66,37 +68,15 @@ const MintForm = ({ account }) => {
             .request({
                 method: 'eth_sendTransaction',
                 params: [transactionParameters],
-            });
-        return {
-            success: true,
-            status: "✅ Check out your transaction on Etherscan: https://ropsten.etherscan.io/tx/" + txHash
-        }
+            })
+        console.log('⭐️⭐️⭐️----------------', txHash);
+        setTxAddress(txHash);
+        setMessage('success');
     } catch (error) {
-        return {
-            success: false,
-            status: "😥 Something went wrong: " + error.message
-        }
+      console.log(error);
+      setMessage('failure');
     }
-
-    // const nonce = await web3.eth.getTransactionCount(recipient, 'latest'); //get latest nonce
-
-    // //the transaction
-    // const tx = {
-    //   'from': recipient,
-    //   'to': deploy_address,
-    //   'nonce': nonce,
-    //   'gas': 500000,
-    //   'maxPriorityFeePerGas': 1999999987,
-    //   'data': contract.methods.mintNFT(recipient, metaData).encodeABI()
-    // };
-  
-    // //step 4: Sign the transaction
-    // //const signedTx = await web3.eth.accounts.signTransaction(tx, 'f34c276387cee5b0cc102894d8d2edb7c627f8f432aac171a9bc3930c473fd59');
-    // const transactionReceipt = await web3.eth.sendTransaction(tx);
-    
-    // console.log(`Transaction receipt: ${JSON.stringify(transactionReceipt)}`);
   }
-
 
   return (
     <div className="mintform-wrapper">
@@ -119,6 +99,35 @@ const MintForm = ({ account }) => {
           <button type="submit" onClick={(e) => handleSubmit(e)}>Mint!</button>
         </div>
       </form>
+      <div className="mintfomr-alert-message-wrapper">
+        {
+          message === 'formError' &&
+          <div className="mintform-filling-error-message">
+            All fields must be filled in.
+          </div>
+        }
+        {
+          message === 'success' &&
+          <div className="mintform-success-message">
+            NFT has been successfully issued!<br />
+            Check your Transaction&nbsp;
+            <a target="_blank" href={'https://rinkeby.etherscan.io/tx/' + txAddress}>HERE!</a>
+          </div>
+        }
+        {
+          message === 'failure' &&
+          <div className="mintform-failure-message">
+            Something wrong! Try again
+          </div>
+        }
+        {
+          message === 'loading' &&
+          <div className="mintform-loading-message">
+            Please wait...&nbsp;
+            <img className="loading-indicator2" alt="now loading..." src="loading2.gif" />
+          </div>
+        }
+      </div>
     </div>
   )
 }

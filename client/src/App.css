@@ -341,6 +341,45 @@ button {
   cursor: pointer;
 }
 
+.mintform-filling-error-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(173, 90, 52);
+}
+
+.mintform-success-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.mintform-success-message a {
+  color: rgba(0, 255, 179, 1);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.mintform-failure-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(173, 90, 52);
+}
+
+.mintform-loading-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.mintform-loading-message .loading-indicator2 {
+  width: 30px;
+  margin: 0;
+}
+
 /* Token */
 
 .token {
