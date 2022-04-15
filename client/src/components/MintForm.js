@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import axios from 'axios';
 import Web3 from "web3";
 import ABI from '../abi/abi.js';

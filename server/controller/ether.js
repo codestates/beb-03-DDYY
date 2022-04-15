@@ -37,7 +37,7 @@ const masterKey = process.env.MASTER_KEY;
 
 async function getNftLists(name){
     await Moralis.start({ serverUrl, appId, masterKey });
-    const options = { q: name, chain: "rinkeby", filter: "name", limit:20};
+    const options = { q: name, chain: "rinkeby", filter: "name", limit:48};
     const NFTs = await Moralis.Web3API.token.searchNFTs(options);
     return NFTs;
 }
