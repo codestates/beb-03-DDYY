@@ -16,20 +16,20 @@ const Mypage = ({account}) => {
     axios.get(`http://localhost:8080/account/getNfts?address=${myAccount}`)
     .then((response) => {
       const result = [];
-      let count = 0;
+      //let count = 0;
       response.data.result.map((item) => {
         if (item.metadata === null) {
           return;
         }
         const parsedItem = JSON.parse(item.metadata);
         const info = {
-          id: count,
+          id: item.token_id,
           name: parsedItem.name ? parsedItem.name : 'undefined',
           desc: parsedItem.description ? parsedItem.description : 'undefined',
           url: parsedItem.image ? parsedItem.image : null,
         }
         result.push(info);
-        count++;
+        //count++;
       });
       setMyNFTs(result);
       setIsLoading(false);
@@ -45,7 +45,7 @@ const Mypage = ({account}) => {
       {
         isLoading ?
         <LoadingIndicator /> :
-        <CardList NFTList={myNFTs} isMypage={true} />
+        <CardList NFTList={myNFTs} isMypage={true} myAccount={myAccount} />
       }
     </div>
   )
