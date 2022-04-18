@@ -23,19 +23,22 @@ npm install
 npm run start
 ```
 
-
 ## REST API SERVER
 
-### Why do we need rest api?
+### requirement
 
-We made this simple list so that you can easily check it. So, if you extend this function, you can use it for filters, etc. This function is linked with the opensea api. Therefore, limitations exist.
+We need pinata and moralis API keys in server/.env file.
 
+pinata : https://app.pinata.cloud/keys
+moralis : https://admin.moralis.io/
 
 #### HOW?
 
 |METHOD|PATH|Explanation| 
 |----|---|---|
-|GET|/account/:walletaddress|You can check the nft works in your wallet.|
+|POST|/nft/create|You can issue NFTs.|
+|GET|/ether/getNftLists|You can search all NFTs registered in the blockchain.|
+|GET|/account/getNfts|You can inquire all the NFTs you have.|
 
 
 #### Minting Example
