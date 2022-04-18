@@ -1,7 +1,7 @@
 # DDYY NFT market (http://ddyymarket.cf)
 
 
-Minimal NFT market
+It is Minimal web serveice of NFT market using `truffle-react-box`.
 
 ```bash
 node version v16
@@ -40,7 +40,7 @@ We made this simple list so that you can easily check it. So, if you extend this
 
 #### Minting Example
 
-![example](https://github.com/codestates/beb-02-hypebear/blob/main/gif/output.gif)
+![example_minting](https://user-images.githubusercontent.com/96492567/163756982-b9c4dc40-5ec5-49e5-a185-76172260787b.gif)
 
 
 
