@@ -9,6 +9,12 @@ const Card = ({ id, name, desc, url, myAccount, isMypage }) => {
 	const [txAddress, setTxAddress] = useState("");
 
 	const transferToken = async () => {
+
+    if (inputRef.current.value === "") {
+			setMessage("formError");
+			return;
+		}
+
 		// from, to, tokenId
 		const from = myAccount;
 		const to = inputRef.current.value;
@@ -35,7 +41,6 @@ const Card = ({ id, name, desc, url, myAccount, isMypage }) => {
 				method: "eth_sendTransaction",
 				params: [transactionParameters],
 			});
-			console.log("⭐️⭐️⭐️----------------", txHash);
 			setTxAddress(txHash);
 			setMessage("success");
 		} catch (error) {
@@ -84,6 +89,11 @@ const Card = ({ id, name, desc, url, myAccount, isMypage }) => {
 				{message === "failure" && (
 					<div className="transfer-failure-message">
 						Something wrong! Try again 😵‍💫
+					</div>
+				)}
+        {message === "formError" && (
+					<div className="transfer-failure-message">
+						All fields must be filled in.
 					</div>
 				)}
 				{message === "loading" && (

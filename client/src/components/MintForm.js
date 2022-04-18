@@ -21,7 +21,7 @@ const MintForm = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
-		if (nameRef === "" || descRef === "" || imgFile === undefined) {
+		if (nameRef.current.value === "" || descRef.current.value === "" || imgFile === undefined) {
 			setMessage("formError");
 			return;
 		}
@@ -65,7 +65,6 @@ const MintForm = () => {
 				method: "eth_sendTransaction",
 				params: [transactionParameters],
 			});
-			console.log("⭐️⭐️⭐️----------------", txHash);
 			setTxAddress(txHash);
 			setMessage("success");
 		} catch (error) {
