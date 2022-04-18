@@ -1,4 +1,4 @@
-# DDYY NFT market (http://ddyymarket.cf)
+# [DDYY NFT market](http://ddyymarket.cf)
 
 
 It is Minimal web serveice of NFT market using `truffle-react-box`.
@@ -27,10 +27,8 @@ npm run start
 
 ### requirement
 
-We need pinata and moralis API keys in server/.env file.
+We need [pinata](https://app.pinata.cloud/keys) and [moralis](https://admin.moralis.io/) API keys in server/.env file.
 
-pinata : https://app.pinata.cloud/keys
-moralis : https://admin.moralis.io/
 
 #### HOW?
 
