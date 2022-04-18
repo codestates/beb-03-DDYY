@@ -14,7 +14,7 @@ module.exports = {
 			provider: () =>
 				new HDWalletProvider(
 					"road patrol accuse mule conduct evil audit deliver wink enjoy please fat",
-					`https://rinkeby.infura.io/v3/78a585a507d24a37a60b7eb1f9710e21`,
+					`https://rinkeby.infura.io/v3/{infura api key}`,
 					1
 				),
 			network_id: 4,
@@ -33,6 +33,6 @@ module.exports = {
 	},
 	plugins: ["truffle-plugin-verify"],
 	api_keys: {
-		etherscan: "V9GUD857CZ1WXGXYXY245TFZ5BK1JXXWIJ",
+		etherscan: "{ethenscan api key}",
 	},
 };
