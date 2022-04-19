@@ -13,7 +13,7 @@ module.exports = {
 		rinkeby: {
 			provider: () =>
 				new HDWalletProvider(
-					"road patrol accuse mule conduct evil audit deliver wink enjoy please fat",
+					{mnemonic},
 					`https://rinkeby.infura.io/v3/{infura api key}`,
 					1
 				),
